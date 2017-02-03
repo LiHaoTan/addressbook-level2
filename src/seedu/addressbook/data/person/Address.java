@@ -39,7 +39,7 @@ public class Address {
 //            throw new IllegalValueException(MESSAGE_ADDRESS_CONSTRAINTS);
 //        }
         
-        if (!tryParseAddress(trimmedAddress)) {
+        if (!canParseAddress(trimmedAddress)) {
             throw new IllegalValueException(MESSAGE_ADDRESS_CONSTRAINTS);
         }
      
@@ -51,7 +51,7 @@ public class Address {
      * Returns true if a given string is a valid address format
      * @throws IllegalValueException //TODO
      */
-    private boolean tryParseAddress(String trimmedAddress) throws IllegalValueException {
+    private boolean canParseAddress(String trimmedAddress) throws IllegalValueException {
         final Matcher matcher = ADDRESS_FORMAT.matcher(trimmedAddress);
         if (!matcher.matches()) {
             return false;
