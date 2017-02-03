@@ -1,10 +1,12 @@
 package seedu.addressbook;
 
+import seedu.addressbook.data.person.Address;
 import seedu.addressbook.data.person.ReadOnlyPerson;
 import seedu.addressbook.storage.StorageFile.*;
 
 import seedu.addressbook.commands.*;
 import seedu.addressbook.data.AddressBook;
+import seedu.addressbook.data.exception.IllegalValueException;
 import seedu.addressbook.parser.Parser;
 import seedu.addressbook.storage.StorageFile;
 import seedu.addressbook.ui.TextUi;
@@ -32,6 +34,11 @@ public class Main {
 
 
     public static void main(String... launchArgs) {
+        try {
+            new Address(Address.EXAMPLE, false);
+        } catch (IllegalValueException e) {
+            //System.out.println("What the heck!");
+        }
         new Main().run(launchArgs);
     }
 
