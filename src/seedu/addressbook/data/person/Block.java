@@ -9,8 +9,8 @@ import seedu.addressbook.data.exception.IllegalValueException;
 public class Block {
 
     public static final String EXAMPLE = "123";
-    public static final String MESSAGE_BLOCK_CONSTRAINTS = "Address blocks should only contain numbers.";
-    public static final String BLOCK_VALIDATION_REGEX = "\\d+";
+    public static final String MESSAGE_BLOCK_CONSTRAINTS = "Address blocks should only contain alphanumeric characters.";
+    public static final String BLOCK_VALIDATION_REGEX = "[\\w\\s]+";
 
     public final String value;
 
