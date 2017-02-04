@@ -47,9 +47,9 @@ public class Address {
     }
     
     /**
-     * Try parsing address and create the address parts if the format matches 
-     * Returns true if a given string is a valid address format
-     * @throws IllegalValueException //TODO
+     * Try parsing address and create the address components if the format matches. 
+     * @return true if a given string is a valid address format.
+     * @throws IllegalValueException if the parsed address components are not valid.
      */
     private boolean canParseAddress(String trimmedAddress) throws IllegalValueException {
         final Matcher matcher = ADDRESS_FORMAT.matcher(trimmedAddress);
