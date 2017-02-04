@@ -102,6 +102,6 @@ public class TextUi {
         if (resultPersons.isPresent()) {
             showToUser(formatter.formatPersonListView(resultPersons.get()));
         }
-        showToUser(formatter.formatResultFeedback(result.feedbackToUser));
+        showToUser(formatter.formatResultFeedbackMessage(result.feedbackToUser));
     }
 }

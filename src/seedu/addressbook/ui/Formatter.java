@@ -36,23 +36,24 @@ public class Formatter {
     
     public String formatWelcomeMessage(String version, String storageFilePath) {
         String storageFileInfo = String.format(MESSAGE_USING_STORAGE_FILE, storageFilePath);
-        return buildMultiLineMessage(DIVIDER, DIVIDER, MESSAGE_WELCOME, version, MESSAGE_PROGRAM_LAUNCH_ARGS_USAGE,
+        return joinLines(DIVIDER, DIVIDER, MESSAGE_WELCOME, version, MESSAGE_PROGRAM_LAUNCH_ARGS_USAGE,
                 storageFileInfo, DIVIDER);
     }
     
     public String formatGoodbyeMessage() {
-        return buildMultiLineMessage(MESSAGE_GOODBYE, DIVIDER, DIVIDER);
+        return joinLines(MESSAGE_GOODBYE, DIVIDER, DIVIDER);
     }
     
     public String formatInitFailedMessage() {
-        return buildMultiLineMessage(MESSAGE_INIT_FAILED, DIVIDER, DIVIDER);
+        return joinLines(MESSAGE_INIT_FAILED, DIVIDER, DIVIDER);
     }
 
-    public String formatResultFeedback(String feedbackToUser) {
-        return buildMultiLineMessage(feedbackToUser, DIVIDER);
+    public String formatResultFeedbackMessage(String feedbackToUser) {
+        return joinLines(feedbackToUser, DIVIDER);
     }
 
-    public String buildMultiLineMessage(String... message) {
+    /** Join multiple lines of String together to a multiline String. **/
+    public String joinLines(String... message) {
         boolean isFirstLine = true;
         final StringBuilder multiLineMessage = new StringBuilder();
         
