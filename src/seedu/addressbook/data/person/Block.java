@@ -17,7 +17,6 @@ public class Block {
     public Block(String block) throws IllegalValueException {
         String trimmedBlock = block.trim();
         if (!isValidBlock(trimmedBlock)) {
-            //System.out.println("BLOCK!");
             throw new IllegalValueException(MESSAGE_BLOCK_CONSTRAINTS);
         }
         this.value = trimmedBlock;

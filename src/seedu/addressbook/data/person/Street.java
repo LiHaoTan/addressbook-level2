@@ -17,7 +17,6 @@ public class Street {
     public Street(String street) throws IllegalValueException {
         String trimmedStreet = street.trim();
         if (!isValidStreet(trimmedStreet)) {
-            //System.out.println(trimmedStreet);
             throw new IllegalValueException(MESSAGE_STREET_CONSTRAINTS);
         }
         this.value = trimmedStreet;

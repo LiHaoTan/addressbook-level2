@@ -34,10 +34,6 @@ public class Address {
         String trimmedAddress = address.trim();
         this.isPrivate = isPrivate;
         
-//        if (!isValidAddress(trimmedAddress)) {
-//            throw new IllegalValueException(MESSAGE_ADDRESS_CONSTRAINTS);
-//        }
-        
         if (!canParseAddress(trimmedAddress)) {
             throw new IllegalValueException(MESSAGE_ADDRESS_CONSTRAINTS);
         }
@@ -49,12 +45,12 @@ public class Address {
      * @throws IllegalValueException if the parsed address components are not valid.
      */
     private boolean canParseAddress(String trimmedAddress) throws IllegalValueException {
+        // TODO isValidFormat method can't be extracted unless a matcher is returned or a matcher is created again in
+        // createAddressComponents
         final Matcher matcher = ADDRESS_FORMAT.matcher(trimmedAddress);
         if (!matcher.matches()) {
             return false;
         }
-        
-        //System.out.println("Passed!!!!");
 
         createAddressComponents(matcher.group("block"), matcher.group("street"), matcher.group("unit"),
                                 matcher.group("postalCode"));

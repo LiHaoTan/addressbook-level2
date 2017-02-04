@@ -34,11 +34,6 @@ public class Main {
 
 
     public static void main(String... launchArgs) {
-        try {
-            new Address(Address.EXAMPLE, false);
-        } catch (IllegalValueException e) {
-            //System.out.println("What the heck!");
-        }
         new Main().run(launchArgs);
     }
 
