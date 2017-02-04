@@ -17,6 +17,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -92,6 +93,13 @@ public class StorageFile {
      * @throws StorageOperationException if there were errors converting and/or storing data to file.
      */
     public void save(AddressBook addressBook) throws StorageOperationException {
+        
+        // XXX handling of file deleted situation using exceptions.
+        // I think this is a very bad idea. Instead of handling file deleted situation, the
+        // following code will just check if the file exists before saving
+        if (!Files.exists(path)) {
+            throw new StorageOperationException("File does not exist!");
+        }
 
         /* Note: Note the 'try with resource' statement below.
          * More info: https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
@@ -136,6 +144,12 @@ public class StorageFile {
         // create empty file if not found
         } catch (FileNotFoundException fnfe) {
             final AddressBook empty = new AddressBook();
+            // XXX hack to create an empty file since we now do not allow non existent files
+            try {
+                Files.createFile(path);
+            } catch (IOException e) {
+                throw new StorageOperationException("Cannot create file!");
+            }
             save(empty);
             return empty;
 
