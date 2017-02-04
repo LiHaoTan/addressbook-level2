@@ -56,12 +56,22 @@ public class Address {
         
         //System.out.println("Passed!!!!");
 
-        this.block = new Block(matcher.group("block"));
-        this.street = new Street(matcher.group("street"));
-        this.unit = new Unit(matcher.group("unit"));
-        this.postalCode = new PostalCode(matcher.group("postalCode"));
+        createAddressComponents(matcher.group("block"), matcher.group("street"), matcher.group("unit"),
+                                matcher.group("postalCode"));
 
         return true;
+    }
+    
+    /**
+     * Create the address components if they are valid. 
+     * @throws IllegalValueException if the parsed address components are not valid.
+     */
+    private void createAddressComponents(final String blockValue, final String streetValue, final String unitValue,
+                                         final String postalCodeValue) throws IllegalValueException {
+        this.block = new Block(blockValue);
+        this.street = new Street(streetValue);
+        this.unit = new Unit(unitValue);
+        this.postalCode = new PostalCode(postalCodeValue);
     }
 
     @Override
