@@ -5,6 +5,7 @@ import seedu.addressbook.data.exception.IllegalValueException;
 import seedu.addressbook.data.tag.Tag;
 import seedu.addressbook.data.tag.UniqueTagList;
 import seedu.addressbook.data.person.*;
+import seedu.addressbook.data.person.address.Address;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;

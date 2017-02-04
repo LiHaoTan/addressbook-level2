@@ -1,4 +1,4 @@
-package seedu.addressbook.data.person;
+package seedu.addressbook.data.person.address;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
