@@ -18,7 +18,6 @@ public class Address {
     public static final Pattern ADDRESS_FORMAT =
             Pattern.compile("(?<block>[^,]+),(?<street>[^,]+),(?<unit>[^,]+),(?<postalCode>[^,]+)");
 
-    private final String value;
     private boolean isPrivate;
     
     private Block block;
@@ -42,8 +41,6 @@ public class Address {
         if (!canParseAddress(trimmedAddress)) {
             throw new IllegalValueException(MESSAGE_ADDRESS_CONSTRAINTS);
         }
-     
-        this.value = trimmedAddress;
     }
     
     /**
