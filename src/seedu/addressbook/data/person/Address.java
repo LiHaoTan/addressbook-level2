@@ -13,7 +13,7 @@ public class Address {
 
     public static final String EXAMPLE = "123, Clementi Ave 3, #12-34, 231534";
     public static final String MESSAGE_ADDRESS_CONSTRAINTS =
-            "Person addresses should contain the block number, street, unit and postal code separated by commas.";
+            "Person address should contain the block number, street, unit and postal code separated by commas.";
     public static final Pattern ADDRESS_FORMAT =
             Pattern.compile("(?<block>[^,]+),(?<street>[^,]+),(?<unit>[^,]+),(?<postalCode>[^,]+)");
 
