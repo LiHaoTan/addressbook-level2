@@ -1,8 +1,8 @@
 package seedu.addressbook.data.person;
 
-import seedu.addressbook.data.tag.UniqueTagList;
-
 import java.util.Objects;
+
+import seedu.addressbook.data.tag.UniqueTagList;
 
 /**
  * Represents a Person in the address book.
@@ -16,6 +16,10 @@ public class Person implements ReadOnlyPerson {
     private Address address;
 
     private final UniqueTagList tags;
+
+    private static int nextSequenceNumber = 1;
+    private int sequenceNumber;
+
     /**
      * Assumption: Every field must be present and not null.
      */
@@ -25,6 +29,9 @@ public class Person implements ReadOnlyPerson {
         this.email = email;
         this.address = address;
         this.tags = new UniqueTagList(tags); // protect internal tags from changes in the arg list
+
+        sequenceNumber = nextSequenceNumber;
+        nextSequenceNumber++;
     }
 
     /**
