@@ -17,7 +17,7 @@ public abstract class Contact {
     private final String messageConstraints;
     private final String validationRegEx;
 
-    public final String value;
+    private final String value;
     private boolean isPrivate;
 
     /**
@@ -51,6 +51,13 @@ public abstract class Contact {
 
     @Override
     public String toString() {
+        return getValue();
+    }
+
+    /**
+     * Returns the value of the contact information.
+     */
+    public String getValue() {
         return value;
     }
 

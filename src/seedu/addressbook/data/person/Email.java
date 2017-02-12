@@ -25,7 +25,7 @@ public class Email extends Contact {
     /**
      * Checks if a given string is a valid person email.
      */
-    // TODO because this method is static, the behavior from Contact.isValid instance method cannot be used
+    // TODO because this method is static, the behavior from Contact::isValid instance method cannot be used
     // To figure out if there is a better way to not repeat code.
     public static boolean isValidEmail(String test) {
         return test.matches(EMAIL_VALIDATION_REGEX);
@@ -35,11 +35,11 @@ public class Email extends Contact {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof Email // instanceof handles nulls
-                && this.value.equals(((Email) other).value)); // state check
+                && this.getValue().equals(((Email) other).getValue())); // state check
     }
 
     @Override
     public int hashCode() {
-        return value.hashCode();
+        return getValue().hashCode();
     }
 }

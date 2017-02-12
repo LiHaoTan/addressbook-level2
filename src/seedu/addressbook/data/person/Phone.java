@@ -24,7 +24,7 @@ public class Phone extends Contact {
     /**
      * Checks if a given string is a valid person phone number.
      */
-    // TODO because this method is static, the behavior from Contact.isValid instance method cannot be used
+    // TODO because this method is static, the behavior from Contact::isValid instance method cannot be used
     // To figure out if there is a better way to not repeat code.
     public static boolean isValidPhone(String test) {
         return test.matches(PHONE_VALIDATION_REGEX);
@@ -34,11 +34,11 @@ public class Phone extends Contact {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof Phone // instanceof handles nulls
-                && this.value.equals(((Phone) other).value)); // state check
+                && this.getValue().equals(((Phone) other).getValue())); // state check
     }
 
     @Override
     public int hashCode() {
-        return value.hashCode();
+        return getValue().hashCode();
     }
 }
