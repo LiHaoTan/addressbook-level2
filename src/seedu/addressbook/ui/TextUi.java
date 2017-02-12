@@ -171,6 +171,9 @@ public class TextUi {
         return String.format(MESSAGE_INDEXED_LIST_ITEM, visibleIndex, listItem);
     }
 
+    /**
+     * Returns a concatenated version of the printable strings of each object.
+     */
     private static String getPrintableString(Printable... printables) {
         final StringJoiner sj = new StringJoiner(", ");
 
